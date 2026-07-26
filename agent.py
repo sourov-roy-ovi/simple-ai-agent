@@ -57,3 +57,20 @@ while True:
     # Invoke the graph execution with the current state
     result = agent.invoke({'messages':conversation_history})
     conversation_history = result['messages']
+
+#==========================================
+# 6. PERSISTENCE / LOGGING
+#==========================================
+# TOOO: Implement ans absolute path or dynamic naming to prevent file overwrites
+with open("logging.txt", "w", encoding="utf-8") as file:
+    file.write("Your conversation log: \n")
+    
+    for message in conversation_history:
+        if isinstance(message, HumanMessage):
+            file.write(f"You: {message.content}\n")
+        elif isinstance(message, AIMessage):
+            file.write(f"AI: {message, AIMessage}\n")
+    
+    file.write("\n End of conversation")
+
+print("Conversation successfully saved to loggin.txt")
