@@ -18,3 +18,14 @@ llm = ChatOllama(
     model="qwen2.5:14b",
     temperature=0
 )
+
+#========================================
+# 3. GRAPH NODES (BUSINESS LOGIC)
+#========================================
+def process(state: AgentState) -> AgentState:
+    """ Node to process incoming user messages and return the model """
+    response = llm.invoke(state["messages"])
+    print(f"\AI: {response.content}")
+    return{
+        'messages':state['messages'] + [AIMessage(content=response.content)]
+    }
