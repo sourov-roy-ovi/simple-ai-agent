@@ -29,3 +29,17 @@ def process(state: AgentState) -> AgentState:
     return{
         'messages':state['messages'] + [AIMessage(content=response.content)]
     }
+
+#========================================
+# 4. GRAPH ARCHITECTURE AND COMPILATION
+#========================================
+# Define the workflow topology
+graph = StateGraph(AgentState)
+graph.add_node("process", process)
+
+# Route execution flow
+graph.add_edge(START, "process")
+graph.add_edge("process", END)
+
+# Compile into and executable LangGraph runnable
+agent = graph.compile()
