@@ -43,3 +43,17 @@ graph.add_edge("process", END)
 
 # Compile into and executable LangGraph runnable
 agent = graph.compile()
+
+#=========================================
+# 5. APPLICATION RUNTIME (CLI CHAT LOOP)
+#=========================================
+conversation_history = []
+while True:
+    user_input = input("Enter: ")
+    if user_input.lower() == "exit":
+        break
+    conversation_history.append(HumanMessage(content=user_input))
+    
+    # Invoke the graph execution with the current state
+    result = agent.invoke({'messages':conversation_history})
+    conversation_history = result['messages']
