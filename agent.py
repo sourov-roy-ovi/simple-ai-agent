@@ -69,7 +69,7 @@ with open("logging.txt", "w", encoding="utf-8") as file:
         if isinstance(message, HumanMessage):
             file.write(f"You: {message.content}\n")
         elif isinstance(message, AIMessage):
-            file.write(f"AI: {message, AIMessage}\n")
+            file.write(f"AI: {message.content}\n")
     
     file.write("\n End of conversation")
 
