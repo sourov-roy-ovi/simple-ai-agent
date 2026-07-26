@@ -25,7 +25,7 @@ llm = ChatOllama(
 def process(state: AgentState) -> AgentState:
     """ Node to process incoming user messages and return the model """
     response = llm.invoke(state["messages"])
-    print(f"\AI: {response.content}")
+    print(f"\nAI: {response.content}")
     return{
         'messages':state['messages'] + [AIMessage(content=response.content)]
     }
