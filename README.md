@@ -51,8 +51,8 @@ ollama run qwen2.5:14b
 Clone the repository, create a virtual environment, and install the verified project dependencies:
 ```bash
 # Clone repository
-git clone <https://github.com/sourov-roy-ovi/simple-ai-agent.git>
-cd <SIMPLE AI AGENT>
+git clone https://github.com/sourov-roy-ovi/simple-ai-agent.git
+cd Simple AI Agent
 
 # Setup Virtual Environment
 python -m venv myvenv
@@ -72,3 +72,9 @@ python agent.py
 
 ## 📝 Conversation Logs (Proof of Concept)
 To check how the agent maintains context, handles query workflows, and responds in real-time, please inspect the [`logging.txt`](./logging.txt) file generated automatically in this repository.
+
+---
+
+## 👨‍💻 Author
+
+- **Sourov Roy** - [GitHub](https://github.com/sourov-roy-ovi) | [LinkedIn](https://www.linkedin.com/in/sourov-roy01/) | [Facebook](https://www.facebook.com/profile.php?id=61554667977485)
